@@ -3,23 +3,6 @@
         <title>Cakewalk</title>
     </head>
     <body style="transition: all .15s;">
-        <script src="./Audio.js"></script>
-        <script>
-            const MIN_FREQ = 261.63 // C4
-            const beepAndFlash = (audio, flashNode) => ({ key }) => {
-                const freq = Math.max(Math.abs(Math.sin(key.charCodeAt(0)) * 1000), MIN_FREQ)
-                const hue = Math.abs(Math.trunc(Math.sin(freq) * 360))
-                const bodyNode = document.querySelector('body')
-
-                flashNode.style.backgroundColor = `hsl(${hue}, 100%, 50%)`
-                audio.beep(freq)
-            }
-
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)()
-            const audio = new Audio(audioContext)
-            const body = document.querySelector('body')
-
-            document.addEventListener('keydown', beepAndFlash(audio, body))
-        </script>
+        <script src="./app.js"></script>
     </body>
 </html>
